@@ -134,7 +134,7 @@
                 "artifactsBaseUrl": "",
                 "description": "URL to acquire other templates"
             },
-            "defaultValue": "https://raw.githubusercontent.com/mattmcspirit/azure-image/AzureStack/Puppet.PuppetEnterprise.2017.2.1/DeploymentTemplates"
+            "defaultValue": "https://raw.githubusercontent.com/mattmcspirit/puppetazurestack/master/Puppet.PuppetEnterprise.2017.2.1/DeploymentTemplates"
         }
     },
     "variables": {
