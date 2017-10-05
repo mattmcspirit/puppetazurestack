@@ -1,0 +1,10 @@
+{
+  "displayName": "Puppet Enterprise 2017.2",
+  "publisherDisplayName": "Puppet",
+  "publisherLegalName":"Puppet",
+  "summary": "Puppet Enterprise lets you automate the entire lifecycle of your Azure and Azure Stack infrastructure",
+  "longSummary": "Puppet Enterprise lets you automate the entire lifecycle of your Azure and Azure Stack infrastructure",
+  "description": "Puppet Enterprise lets you automate the entire lifecycle of your Azure and Azure Stack infrastructure, simply, scalably, and securely, from initial provisioning through application deployment. Our Puppet Enterprise image lets you manage up to 10 VMs free.<p>After you set up your Puppet Master, you can start automating common tasks, such as provisioning an Azure or Azure Stack VM, deploying an IIS site, and configuring a SQL server database.</p><p><b>Please Note:</b> This solution template requires you to also download the Puppet Enterprise 2017.2 Virtual Machine image</p>",
+  "documentationLink": "Puppet Enterprise Documentation",
+  "documentationLink2": "Puppet Enterprise Overview"
+}
