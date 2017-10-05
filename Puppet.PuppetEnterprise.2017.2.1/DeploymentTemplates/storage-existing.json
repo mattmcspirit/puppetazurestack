@@ -24,7 +24,7 @@
     "resources": [],
     "outputs": {
         "storageAccountId": {
-            "value": "[reference(resourceId(parameters('storageAccountResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')))]",
+            "value": "[reference(resourceId(parameters('storageAccountResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2015-06-15')]",
             "type": "string"
         },
         "storageAccountResourceGroup": {
