@@ -172,7 +172,7 @@
         "networkSecurityGroupSetupUrl": "[concat(parameters('templateBaseUrl'),'/networkSecurityGroup.json')]",
         "storageAccountResourceGroupnew": "[resourceGroup().name]",
         "storageAccountResourceGroupexisting": "[parameters('storageAccountResourceGroup')]",
-        "storageAccountResourceGroup": "[variables(concat('storageAccountResourceGroup', parameters('storageAccountNewOrExisting')))]",
+        "storageAccountResourceGroup": "[variables(concat('storageAccountResourceGroup', parameters('storageAccountNewOrExisting')))]"
     },
     "resources": [
         {
