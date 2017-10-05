@@ -5,6 +5,12 @@
     "publicIPAddressName": {
       "type": "string"
     },
+    "publicIPAddressResourceGroup": {
+      "type": "string",
+      "metadata": {
+        "description": "The Public IP Addresses Resource Group"
+      }
+    },
     "publicIPAddressDomainNameLabel": {
       "type": "string"
     }
@@ -13,11 +19,12 @@
   "resources": [],
   "outputs": {
     "publicIpId": {
-      "value": "[resourceId('Microsoft.Network/publicIPAddresses',parameters('publicIPAddressName'))]",
+      "value": "[resourceId(parameters('publicIPAddressResourceGroup'), 'Microsoft.Network/publicIPAddresses', parameters('publicIPAddressName'))]",
       "type": "string"
     },
     "fqdn": {
-      "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses',parameters('publicIPAddressName')), '2015-06-15').dnsSettings.fqdn]",
+      "value": "[reference(resourceId(parameters('publicIPAddressResourceGroup'), 'Microsoft.Network/publicIPAddresses', parameters('publicIPAddressName')), '2015-06-15').dnsSettings.fqdn]",
       "type": "string"
     }
+  }
 }

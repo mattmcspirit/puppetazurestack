@@ -35,6 +35,9 @@
     "virtualNetworkSubnetAddressPrefix": {
       "value": "10.0.0.0/24"
     },
+    "virtualNetworkResourceGroup": {
+      "value": ""
+    },
     "publicIPAddressName": {
       "value": "puppetmaster_ip"
     },
@@ -43,6 +46,9 @@
     },
     "publicIPAddressNewOrExisting": {
       "value": "new"
+    },
+    "publicIPAddressResourceGroup": {
+      "value": ""
     },
     "storageAccountName": {
       "value": "puppetstor"
@@ -53,11 +59,14 @@
     "storageAccountNewOrExisting": {
       "value": "new"
     },
+    "storageAccountResourceGroup": {
+      "value": ""
+    },
     "nicName": {
       "value": "puppetmaster_nic"
     },
     "templateBaseUrl": {
-      "value": "https://raw.githubusercontent.com/puppetlabs/azure-image/master/"
+      "value": "https://raw.githubusercontent.com/puppetlabs/AzureStack/master/Puppet.PuppetEnterprise.2017.2.1/DeploymentTemplates"
     }
   }
 }

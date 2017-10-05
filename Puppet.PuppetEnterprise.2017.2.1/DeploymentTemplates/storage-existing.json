@@ -13,13 +13,23 @@
             "metadata": {
                 "Description": "The type of the Storage Account created"
             }
+        },
+        "storageAccountResourceGroup": {
+            "type": "string",
+            "metadata": {
+                "Description": "The Resource Group for the new storage account"
+            }
         }
     },
     "resources": [],
     "outputs": {
         "storageAccountId": {
-            "value": "[resourceId('Microsoft.Storage/StorageAccounts',parameters('storageAccountName'))]",
+            "value": "[reference(resourceId(parameters('storageAccountResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')))]",
             "type": "string"
+        },
+        "storageAccountResourceGroup": {
+            "type": "string",
+            "value": "[parameters('storageAccountResourceGroup')]"
         }
     }
 }
