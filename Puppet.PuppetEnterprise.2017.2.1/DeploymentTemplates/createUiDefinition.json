@@ -136,10 +136,10 @@
                                 },
                                 "defaultValue": {
                                     "name": "puppetmaster_vnet",
-                                    "addressPrefixSize": "/16"
+                                    "addressPrefixSize": "/24"
                                 },
                                 "constraints": {
-                                    "minAddressPrefixSize": "/16"
+                                    "minAddressPrefixSize": "/24"
                                 },
                                 "subnets": {
                                     "subnet1": {
