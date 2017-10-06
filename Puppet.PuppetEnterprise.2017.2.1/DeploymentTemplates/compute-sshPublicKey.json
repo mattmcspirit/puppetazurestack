@@ -23,6 +23,9 @@
         "storageAccountName": {
             "type": "string"
         },
+        "storageAccountResourceGroup": {
+            "type": "string"
+        },
         "fqdn": {
             "type": "string"
         }
@@ -31,9 +34,7 @@
         "imagePublisher": "Puppet",
         "imageOffer": "Puppet-Enterprise",
         "imageSku": "2017-2",
-        "version": "latest",
-        "OSDiskName": "osdisk1",
-        "vmStorageAccountContainerName": "vhds"
+        "version": "latest"
     },
     "resources": [
         {
@@ -71,7 +72,7 @@
                     "osDisk": {
                         "name": "osdisk",
                         "vhd": {
-                            "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')),'2016-01-01').primaryEndpoints.blob, variables('vmStorageAccountContainerName'),'/',variables('OSDiskName'),'.vhd')]"
+                            "uri": "[concat(reference(resourceId(parameters('storageAccountResourceGroup'), 'Microsoft.Storage/storageAccounts/', parameters('storageAccountName')),'2016-01-01').primaryEndpoints.blob, 'vhds/', parameters('puppetMasterVmName'), uniquestring(Deployment().Name), '.vhd')]"
                         },
                         "caching": "ReadWrite",
                         "createOption": "FromImage"
@@ -87,7 +88,7 @@
                 "diagnosticsProfile": {
                     "bootDiagnostics": {
                         "enabled": "true",
-                        "storageUri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01').primaryEndpoints.blob)]"
+                        "storageUri": "[concat(reference(resourceId(parameters('storageAccountResourceGroup'), 'Microsoft.Storage/storageAccounts/', parameters('storageAccountName')),'2016-01-01').primaryEndpoints.blob)]"
                     }
                 }
             }
