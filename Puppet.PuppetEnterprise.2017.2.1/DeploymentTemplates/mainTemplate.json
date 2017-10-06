@@ -79,6 +79,13 @@
                 "description": "Virtual Network subnet address prefix"
             }
         },
+        "virtualNetworkResourceGroup": {
+            "type": "string",
+            "metadata": {
+                "description": "Resouce Group of the virtual network"
+            },
+            "defaultValue": ""
+        },
         "publicIPAddressNewOrExisting": {
             "type": "string",
             "defaultValue": "new",
@@ -98,6 +105,19 @@
             "defaultValue": "puppetmaster",
             "metadata": {
                 "description": "Public IP domain name prefix"
+            }
+        },
+        "publicIPAddressResourceGroup": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the Public IP Adresseses Resource Group"
+            },
+            "defaultValue": ""
+        },
+        "resourceGroupName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the resource group into which everything will be deployed"
             }
         },
         "storageAccountNewOrExisting": {
@@ -121,6 +141,13 @@
                 "description": "Storage Acccount Type"
             }
         },
+        "storageAccountResourceGroup": {
+            "type": "string",
+            "metadata": {
+                "description": "Resouce Group of the storage account to use for Virtual Machine disks"
+            },
+            "defaultValue": ""
+        },
         "nicName": {
             "type": "string",
             "defaultValue": "puppetmaster_nic",
@@ -143,11 +170,9 @@
         "vnetSetupUrl": "[concat(parameters('templateBaseUrl'),'/vnet-',parameters('virtualNetworkNewOrExisting'),'.json')]",
         "vmSetupUrl": "[concat(parameters('templateBaseUrl'),'/compute-',parameters('authenticationType'),'.json')]",
         "networkSecurityGroupSetupUrl": "[concat(parameters('templateBaseUrl'),'/networkSecurityGroup.json')]",
-        "virtualNetworkResourceGroup": "[resourceGroup().name]",
-        "publicIPAddressResourceGroup": "[resourceGroup().name]",
-        "storageAccountResourceGroup": "[variables(concat('storageAccountResourceGroup', parameters('storageAccountNewOrExisting')))]",
         "storageAccountResourceGroupnew": "[resourceGroup().name]",
-        "storageAccountResourceGroupexisting": "[variables('storageAccountResourceGroup')]"
+        "storageAccountResourceGroupexisting": "[parameters('storageAccountResourceGroup')]",
+        "storageAccountResourceGroup": "[variables(concat('storageAccountResourceGroup', parameters('storageAccountNewOrExisting')))]"
     },
     "resources": [
         {
@@ -205,7 +230,7 @@
                         "value": "[parameters('virtualNetworkName')]"
                     },
                     "virtualNetworkResourceGroup": {
-                        "value": "[variables('virtualNetworkResourceGroup')]"
+                        "value": "[parameters('virtualNetworkResourceGroup')]"
                       },
                     "virtualNetworkAddressPrefix": {
                         "value": "[parameters('virtualNetworkAddressPrefix')]"
@@ -234,6 +259,9 @@
                     "publicIPAddressName": {
                         "value": "[parameters('publicIPAddressName')]"
                     },
+                    "publicIPAddressResourceGroup": {
+                        "value": "[parameters('publicIPAddressResourceGroup')]"
+                      },
                     "publicIPAddressDomainNameLabel": {
                         "value": "[parameters('publicIPAddressDomainNameLabel')]"
                     }
