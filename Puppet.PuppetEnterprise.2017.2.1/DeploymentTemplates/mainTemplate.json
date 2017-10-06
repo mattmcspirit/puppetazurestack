@@ -330,6 +330,9 @@
                     "storageAccountName": {
                         "value": "[parameters('storageAccountName')]"
                     },
+                    "storageAccountResourceGroup": {
+                        "value": "[variables('storageAccountResourceGroup')]"
+                    },
                     "fqdn": {
                         "value": "[reference('SettingUpPublicIPs').outputs.fqdn.value]"
                     },
